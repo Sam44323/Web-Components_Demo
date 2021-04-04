@@ -2,6 +2,9 @@ class Tooltip extends HTMLElement {
   constructor() {
     super();
     this.tooltipContainer;
+    this._tooltipText = this.getAttribute("text")
+      ? this.getAttribute("text")
+      : "This is working!";
   }
 
   connectedCallback() {
@@ -14,7 +17,12 @@ class Tooltip extends HTMLElement {
 
   _showTooltip() {
     this.tooltipContainer = document.createElement("div");
-    this.tooltipContainer.textContent = "This is the tooltip text!";
+    this.tooltipContainer.textContent = this._tooltipText;
+    this.tooltipContainer.style.backgroundColor = "black";
+    this.tooltipContainer.style.padding = "10px";
+    this.tooltipContainer.style.color = "salmon";
+    this.tooltipContainer.style.position = "absolute";
+    this.tooltipContainer.style.zIndex = "10";
     this.appendChild(this.tooltipContainer);
   }
   _removeTooltip() {
