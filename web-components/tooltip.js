@@ -20,6 +20,7 @@ class Tooltip extends HTMLElement {
     this.tooltipContainer.textContent = this._tooltipText;
     this.tooltipContainer.style.backgroundColor = "salmon";
     this.tooltipContainer.style.padding = "10px";
+    this.tooltipContainer.style.color = "salmon";
     this.tooltipContainer.style.position = "absolute";
     this.tooltipContainer.style.zIndex = "10";
     this.appendChild(this.tooltipContainer);
