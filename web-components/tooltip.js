@@ -29,5 +29,4 @@ class Tooltip extends HTMLElement {
     this.removeChild(this.tooltipContainer);
   }
 }
-
 customElements.define("woof-tooltip", Tooltip);
