@@ -17,7 +17,6 @@ class Tooltip extends HTMLElement {
     this.tooltipContainer.textContent = "This is the tooltip text!";
     this.appendChild(this.tooltipContainer);
   }
-
   _removeTooltip() {
     this.removeChild(this.tooltipContainer);
   }
