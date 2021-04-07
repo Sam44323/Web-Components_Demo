@@ -5,6 +5,7 @@ class Tooltip extends HTMLElement {
     this._tooltipText = this.getAttribute("text")
       ? this.getAttribute("text")
       : "This is working!";
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
@@ -12,7 +13,7 @@ class Tooltip extends HTMLElement {
     tooltipIcon.textContent = " (?)";
     tooltipIcon.addEventListener("mouseenter", this._showTooltip.bind(this));
     tooltipIcon.addEventListener("mouseleave", this._removeTooltip.bind(this));
-    this.appendChild(tooltipIcon);
+    this.shadowRoot.appendChild(tooltipIcon);
   }
 
   _showTooltip() {
@@ -22,10 +23,10 @@ class Tooltip extends HTMLElement {
     this.tooltipContainer.style.padding = "10px";
     this.tooltipContainer.style.position = "absolute";
     this.tooltipContainer.style.zIndex = "10";
-    this.appendChild(this.tooltipContainer);
+    this.shadowRoot.appendChild(this.tooltipContainer);
   }
   _removeTooltip() {
-    this.removeChild(this.tooltipContainer);
+    this.shadowRoot.removeChild(this.tooltipContainer);
   }
 }
 customElements.define("woof-tooltip", Tooltip);
