@@ -16,7 +16,7 @@ class Tooltip extends HTMLElement {
       }
     </style>
     <slot>Some default!</slot>
-    <span> (?)</span>`;
+    <span> (?) </span>`;
   }
 
   connectedCallback() {
